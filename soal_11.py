@@ -1,13 +1,15 @@
 import numpy as np
 
-x = 5
+x_sebelum = 5
 
-xi = (np.sqrt( x*x*x/-6 + 19*x/6 + 14))
+x_sesudah = np.sqrt((x_sebelum**3 / -6) + (19 * x_sebelum / 6) + 14)
 
-for i in range(5):
-    ea = np.abs(xi - x)*100/xi
-    x = (np.sqrt( x*x*x/-6 + 19*x/6 + 14))
-    xi = (np.sqrt( xi*xi*xi/-6 + 19*xi/6 + 14))
-    print ("Iterasi", i+1, "=", np.round(x,2))
-    print ("Ea =", np.round(ea,2),"%")
-    print ("")
+for iterasi in range(5):
+    galat_rel = abs(x_sesudah - x_sebelum) * 100 / x_sesudah
+
+    x_sebelum = np.sqrt((x_sebelum**3 / -6) + (19 * x_sebelum / 6) + 14)
+    x_sesudah = np.sqrt((x_sesudah**3 / -6) + (19 * x_sesudah / 6) + 14)
+
+    print(f"Iterasi ke-{iterasi + 1} : x = {np.round(x_sebelum, 2)}")
+    print(f"Ea = {np.round(galat_rel, 2)}%")
+    print()
